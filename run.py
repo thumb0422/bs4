@@ -24,10 +24,7 @@ class MyThread(Thread):
             else:
                 print('线程: ',self.name,' ,第',str(i),'次开始打开网页:', datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
 
-
-if __name__ == '__main__':
-    print('开始:',datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
-    for i in range(0,threadCount):
-        threadTmp = MyThread(str(i))
-        threadTmp.start()
-
+print('开始:',datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
+for i in range(0,threadCount):
+    threadTmp = MyThread(str(i))
+    threadTmp.start()
