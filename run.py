@@ -1,6 +1,5 @@
 # -*- coding=utf-8 -*-
 import datetime
-from bs4 import BeautifulSoup
 import urllib
 from threading import Thread
 
