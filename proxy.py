@@ -17,7 +17,6 @@ class ProxySend():
             return
         # 访问网址
         url = self.url
-        # url = 'http://www.baidu.com/'
         # url = 'http://www.whatismyip.com.tw/' #访问这个地址可以获取本机IP
 
         # 这是代理IP
@@ -39,9 +38,9 @@ class ProxySend():
             # 返回状态
             code = response.code
             # 打印信息
-            print('current request status is ', code)
+            print('-----------success--------- ', code)
         except Exception as e:
-            print('current request error is ', e)
+            print('-----------error--------- ', e)
             code = "-1"
 
         return code
