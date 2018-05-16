@@ -37,7 +37,7 @@ class proxy_IP:
     # 验证代理IP有效性的方法
     def test(self,i):
         socket.setdefaulttimeout(5)  # 设置全局超时时间
-        url = "http://www.baidu.com"
+        url = "https://www.toutiao.com"
         try:
             proxy_support = urllib.request.ProxyHandler(self.proxys[i])
             opener = urllib.request.build_opener(proxy_support)

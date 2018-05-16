@@ -13,37 +13,37 @@ class ProxySend():
 
     def sendRequest(self):
         if len(self.ipArrays) < 1:
-            print('I can not find any useful IPAddress!!!!!!!!!!!!!!!!please check it')
-            return
-        # 访问网址
-        url = self.url
-        # url = 'http://www.whatismyip.com.tw/' #访问这个地址可以获取本机IP
+            return -2
+        else:
+            # 访问网址
+            url = self.url
+            # url = 'http://www.whatismyip.com.tw/' #访问这个地址可以获取本机IP
 
-        # 这是代理IP
-        proxy = {'http': choice(self.ipArrays)}#随机一个代理IP
-        print('current request Address is ',proxy)
-        try:
-            # 创建ProxyHandler
-            proxy_support = request.ProxyHandler(proxy)
-            # 创建Opener
-            opener = request.build_opener(proxy_support)
-            # 添加User Angent
-            opener.addheaders = [('User-Agent', choice(userAgents))]
-            # 安装OPener
-            request.install_opener(opener)
-            # 使用自己安装好的Opener
-            response = request.urlopen(url)
-            # 读取相应信息并解码
-            html = response.read().decode("utf-8")
-            # 返回状态
-            code = response.code
-            # 打印信息
-            print('-----------success--------- ', code)
-        except Exception as e:
-            print('-----------error--------- ', e)
-            code = "-1"
+            # 这是代理IP
+            proxy = {'http': choice(self.ipArrays)}#随机一个代理IP
+            # print('current request Address is ',proxy)
+            try:
+                # 创建ProxyHandler
+                proxy_support = request.ProxyHandler(proxy)
+                # 创建Opener
+                opener = request.build_opener(proxy_support)
+                # 添加User Angent
+                opener.addheaders = [('User-Agent', choice(userAgents))]
+                # 安装OPener
+                request.install_opener(opener)
+                # 使用自己安装好的Opener
+                response = request.urlopen(url)
+                # 读取相应信息并解码
+                html = response.read().decode("utf-8")
+                # 返回状态
+                code = response.code
+                # 打印信息
+                # print('-----------success--------- ', code)
+            except Exception as e:
+                # print('-----------error--------- ', e)
+                code = -1
 
-        return code
+            return code
 
     def readIPArrayFromLocal(self):
         fileName = "proxy_ip.txt"
